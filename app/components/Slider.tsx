@@ -15,7 +15,7 @@ const Slider = ({
   max,
   step = 1
 }: SliderProps) => {
-  const handleChange = (event: ChangeEventHandler<HTMLInputElement>) =>
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(parseFloat(event.target.value));
 
   return (
