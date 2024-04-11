@@ -1,12 +1,6 @@
 type SliderProps = {
   value: number;
-  setValue: (
-    value: (prev: {
-      arcSize: number;
-      knobSize: number;
-      strokeWidth: number;
-    }) => { arcSize: number; knobSize: number; strokeWidth: number }
-  ) => void;
+  setValue: (value: number) => void;
   min: number;
   max: number;
   label: string;
@@ -21,13 +15,8 @@ const Slider = ({
   max,
   step = 1
 }: SliderProps) => {
-  const handleChange = (event: any) =>
-    setValue(
-      (prev: { arcSize: number; knobSize: number; strokeWidth: number }) => ({
-        ...prev,
-        [label]: parseFloat(event.target.value)
-      })
-    );
+  const handleChange = (event: ChangeEventHandler<HTMLInputElement>) =>
+    setValue(parseFloat(event.target.value));
 
   return (
     <div className="flex items-center text-sm gap-6 font-mono">

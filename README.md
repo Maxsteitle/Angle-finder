@@ -2,4 +2,4 @@
 
 This is a conceptual prototype of an angle finder tool.
 
-[`View demo`](https://brilliant-prototype.vercel.app/)
+[`View demo`](https://angle-finder.vercel.app/)

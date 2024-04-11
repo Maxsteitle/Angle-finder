@@ -7,31 +7,24 @@ import AngleTool from './components/AngleTool';
 import iphoneMockup from '../public/iphone-mockup.png';
 
 export default function Home() {
-  const [angleToolProps, setAngleToolProps] = useState<{
-    arcSize: number;
-    knobSize: number;
-    strokeWidth: number;
-  }>({
-    arcSize: 0.25,
-    knobSize: 16,
-    strokeWidth: 2
-  });
-
+  const [arcSize, setArcSize] = useState(0.25);
+  const [knobSize, setKnobSize] = useState(16);
+  const [strokeWidth, setStrokeWidth] = useState(2);
   const [isAngleToolVisible, setIsAngleToolVisible] = useState(false);
 
   return (
-    <main className="select-none font-sans max-w-[1000px] m-auto cursor-default">
-      <div className="flex select-text text-sm m-6  justify-between">
+    <main className="select-none font-sans max-w-screen-lg m-auto cursor-default">
+      <div className="flex select-text text-sm m-6 justify-between">
         <div className="flex gap-20">
           <div>
             <p>Max Steitle</p>
             <p className="text-gray-400">Design Engineer</p>
           </div>
-          <div className="max-[1000px]:hidden">
+          <div className="max-lg:hidden">
             <p>Angle Tool</p>
             <p className="text-gray-400">Typescript</p>
           </div>
-          <div className="max-[1000px]:hidden">
+          <div className="max-lg:hidden">
             <p>Brilliant Prototype</p>
             <p className="text-gray-400">2024</p>
           </div>
@@ -46,8 +39,8 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="flex gap-6 mb-16 max-[1000px]:hidden">
-        <div className="bg-[#F5F5F5] p-12 w-6/12 rounded-xl relative">
+      <div className="m-auto flex w-[489px] flex-col gap-6 mb-16 lg:flex-row lg:w-auto">
+        <div className="bg-[#F5F5F5] p-12 rounded-xl relative lg:w-6/12">
           <div>
             <Image
               className="pointer-events-none"
@@ -59,9 +52,9 @@ export default function Home() {
                 left={172}
                 top={311}
                 diameter={200}
-                knobSize={angleToolProps.knobSize}
-                innerArcPercentage={angleToolProps.arcSize}
-                strokeWidth={angleToolProps.strokeWidth}
+                knobSize={knobSize}
+                innerArcPercentage={arcSize}
+                strokeWidth={strokeWidth}
               />
             )}
             <div className="flex justify-center">
@@ -74,48 +67,44 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-6/12">
-          <div className="flex justify-center items-center mb-6 rounded-xl h-[calc(50%-12px)]  bg-[#F5F5F5]">
+        <div className="w-full lg:w-6/12">
+          <div className="py-12 flex justify-center items-center mb-6 rounded-xl h-[calc(50%-12px)]  bg-[#F5F5F5]">
             <AngleTool
               showBorder
               entryAnimation={false}
-              knobSize={angleToolProps.knobSize}
-              innerArcPercentage={angleToolProps.arcSize}
-              strokeWidth={angleToolProps.strokeWidth}
+              knobSize={knobSize}
+              innerArcPercentage={arcSize}
+              strokeWidth={strokeWidth}
             />
           </div>
-          <div className="flex justify-center items-center rounded-xl h-[calc(50%-12px)] bg-[#F5F5F5]">
+          <div className="py-20 flex justify-center items-center rounded-xl h-[calc(50%-12px)] bg-[#F5F5F5]">
             <div className="flex flex-col gap-6 items-end">
               <Slider
-                label={'knobSize'}
-                value={angleToolProps.knobSize}
-                setValue={setAngleToolProps}
-                min={2}
+                label={'Knob'}
+                value={knobSize}
+                setValue={setKnobSize}
+                min={4}
                 max={30}
               />
               <Slider
-                label={'arcSize'}
-                value={angleToolProps.arcSize}
-                setValue={setAngleToolProps}
+                label={'Arc'}
+                value={arcSize}
+                setValue={setArcSize}
                 min={0.05}
                 max={1}
                 step={0.05}
               />
               <Slider
-                label={'strokeWidth'}
-                value={angleToolProps.strokeWidth}
-                setValue={setAngleToolProps}
+                label={'Stroke'}
+                value={strokeWidth}
+                setValue={setStrokeWidth}
                 min={0.5}
-                max={10}
+                max={6}
                 step={0.5}
               />
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="hidden w-full my-80 text-sm text-gray-400 items-center justify-center max-[1000px]:flex font-mono">
-        Resize window to 1000px
       </div>
     </main>
   );

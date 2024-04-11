@@ -17,8 +17,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Brilliant Prototype',
-  description: 'Brilliant Prototype'
+  title: 'Angle tool',
+  description: 'Angle tool'
 };
 
 export default function RootLayout({
