@@ -21,7 +21,7 @@ const Slider = ({
   max,
   step = 1
 }: SliderProps) => {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const handleChange = (event: any) =>
     setValue(
       (prev: { arcSize: number; knobSize: number; strokeWidth: number }) => ({
         ...prev,
